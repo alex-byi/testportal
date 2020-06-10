@@ -8,14 +8,13 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "?????")
+@Table(name = "question")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Topic {
+public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 }

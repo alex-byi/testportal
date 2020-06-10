@@ -6,16 +6,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "?????")
+@Table(name = "user_role")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Topic {
+public class UserRole {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
+    @Transient
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
 }

@@ -5,6 +5,14 @@ spring:
   datasource:
     url: jdbc:h2:mem:testdb
     sql-script-encoding: UTF-8
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 63aa61adf8827eba9da8
+            clientSecret: 2f24aa0ed092b81a2306e387dc8b9c9abc36ae6d
+
 
 server:
   port: 8080

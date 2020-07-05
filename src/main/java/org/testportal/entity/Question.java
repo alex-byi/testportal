@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "question")
+@Table(name = "questions")
 @Data
 @Builder
 @AllArgsConstructor
@@ -19,4 +19,10 @@ public class Question {
     private Long id;
 
     private String question;
+
+    private int answerAmount;
+
+    @OneToOne (optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "answer_id")
+    private Answer answer;
 }

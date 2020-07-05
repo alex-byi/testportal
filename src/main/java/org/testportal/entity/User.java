@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Data
 @Builder
 @AllArgsConstructor

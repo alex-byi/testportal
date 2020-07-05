@@ -1,10 +1,14 @@
 package org.testportal.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.testportal.entity.Answer;
 import org.testportal.entity.Topic;
+import org.testportal.entity.dto.AnswerDto;
 import org.testportal.entity.dto.TopicDto;
+import org.testportal.service.topic.AnswerService;
 import org.testportal.service.topic.TopicService;
 
 import java.util.ArrayList;
@@ -15,29 +19,29 @@ import java.util.List;
 @RequestMapping(value = "/api")
 public class PortalController {
 
-    private TopicService topicService;
-
-    public PortalController(TopicService topicService) {
-        this.topicService = topicService;
-    }
+    @Autowired
+    private AnswerService answerService;
 
     @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(value = "/{id}")
-    public TopicDto findOne(@PathVariable Long id){
-        Topic entity = topicService.findById(id)
+    public AnswerDto findOne(@PathVariable Long id){
+        Answer entity = answerService.findById(id)
                 .orElseThrow(() ->new ResponseStatusException(HttpStatus.NOT_FOUND));
         return convertToDto(entity);
     }
 
     @GetMapping
-    public Collection<TopicDto> findAll(){
-        Iterable<Topic> topics = this.topicService.findAll();
-        List<TopicDto> topicDtoList = new ArrayList<>();
-        topics.forEach(t -> topicDtoList.add(convertToDto(t)));
-        return topicDtoList;
+    public Collection<AnswerDto> findAll(){
+        Iterable<Answer> answers = this.answerService.findAll();
+        List<AnswerDto> answerDtoList = new ArrayList<>();
+        answers.forEach(t -> answerDtoList.add(convertToDto(t)));
+        return answerDtoList;
     }
 
-    protected TopicDto convertToDto (Topic entity){
-        return new TopicDto(entity.getId(), entity.getTopic());
+    protected AnswerDto convertToDto (Answer entity){
+        return new AnswerDto(entity.getId(), entity.getTrueAnswer(), entity.getFirstAnswer(),
+                entity.getSecondAnswer(), entity.getThirdAnswer(), entity.getFourthAnswer(),
+                entity.getFifthAnswer(), entity.getSixthAnswer(), entity.getSeventhAnswer(),
+                entity.getEighthAnswer(), entity.getQuestion());
     }
 }

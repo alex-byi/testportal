@@ -5,15 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.testportal.entity.Answer;
-import org.testportal.entity.Topic;
 import org.testportal.entity.dto.AnswerDto;
-import org.testportal.entity.dto.TopicDto;
 import org.testportal.service.topic.AnswerService;
-import org.testportal.service.topic.TopicService;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = "/api")
@@ -33,15 +28,16 @@ public class PortalController {
     @GetMapping
     public Collection<AnswerDto> findAll(){
         Iterable<Answer> answers = this.answerService.findAll();
-        List<AnswerDto> answerDtoList = new ArrayList<>();
-        answers.forEach(t -> answerDtoList.add(convertToDto(t)));
-        return answerDtoList;
+        Set<AnswerDto> answerDto = new HashSet<>();
+        answers.forEach(t -> answerDto.add(convertToDto(t)));
+        return answerDto;
     }
 
     protected AnswerDto convertToDto (Answer entity){
-        return new AnswerDto(entity.getId(), entity.getTrueAnswer(), entity.getFirstAnswer(),
-                entity.getSecondAnswer(), entity.getThirdAnswer(), entity.getFourthAnswer(),
-                entity.getFifthAnswer(), entity.getSixthAnswer(), entity.getSeventhAnswer(),
-                entity.getEighthAnswer(), entity.getQuestion());
+        return AnswerDto.builder().id(entity.getId()).trueAnswer(entity.getTrueAnswer())
+                .firstAnswer(entity.getFirstAnswer()).secondAnswer(entity.getSecondAnswer())
+                .thirdAnswer(entity.getThirdAnswer()).fourthAnswer(entity.getFourthAnswer())
+                .fifthAnswer(entity.getFifthAnswer()).sixthAnswer(entity.getSixthAnswer())
+                .seventhAnswer(entity.getSeventhAnswer()).eighthAnswer(entity.getEighthAnswer()).build();
     }
 }

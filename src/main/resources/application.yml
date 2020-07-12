@@ -2,6 +2,10 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+#    properties:
+#      hibernate:
+#        show_sql: true
+#        format_sql: true
   datasource:
     url: jdbc:h2:mem:testdb
     sql-script-encoding: UTF-8
@@ -12,6 +16,11 @@ spring:
           github:
             clientId: 63aa61adf8827eba9da8
             clientSecret: 2f24aa0ed092b81a2306e387dc8b9c9abc36ae6d
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        type: trace
 
 
 server:

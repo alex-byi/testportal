@@ -1,6 +1,5 @@
 package org.testportal.service.topic.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.testportal.entity.Question;

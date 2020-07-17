@@ -20,17 +20,17 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Optional<Question> findById(Long id) {
-        return Optional.empty();
+        return questionRepository.findById(id);
     }
 
     @Override
     public Question save(Question question) {
-        return null;
+        return questionRepository.save(question);
     }
 
     @Override
     public Iterable<Question> findAll() {
-        return null;
+        return questionRepository.findAll();
     }
     //TODO impl
 

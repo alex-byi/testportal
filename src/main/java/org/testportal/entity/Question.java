@@ -1,5 +1,6 @@
 package org.testportal.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class Question {
 
     private int answerAmount;
 
+    @JsonIgnore
     @OneToOne (optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "answer_id")
     private Answer answer;

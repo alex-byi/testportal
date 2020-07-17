@@ -25,7 +25,7 @@ public class AnswerServiceImpl implements AnswerService {
 
     @Override
     public Answer save(Answer answer) {
-        return null;
+        return answerRepository.save(answer);
     }
 
     @Override

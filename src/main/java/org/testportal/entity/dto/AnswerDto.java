@@ -2,6 +2,7 @@ package org.testportal.entity.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.testportal.entity.Question;
 
@@ -10,6 +11,7 @@ import java.util.Objects;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 public class AnswerDto {
 
     private Long id;
@@ -33,51 +35,6 @@ public class AnswerDto {
     private String eighthAnswer;
 
     private Question question;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTrueAnswer() {
-        return trueAnswer;
-    }
-
-    public String getFirstAnswer() {
-        return firstAnswer;
-    }
-
-    public String getSecondAnswer() {
-        return secondAnswer;
-    }
-
-    public String getThirdAnswer() {
-        return thirdAnswer;
-    }
-
-    public String getFourthAnswer() {
-        return fourthAnswer;
-    }
-
-    public String getFifthAnswer() {
-        return fifthAnswer;
-    }
-
-    public String getSixthAnswer() {
-        return sixthAnswer;
-    }
-
-    public String getSeventhAnswer() {
-        return seventhAnswer;
-    }
-
-    public String getEighthAnswer() {
-        return eighthAnswer;
-    }
-
-    public Question getQuestion() {
-        return question;
-    }
 
     @Override
     public boolean equals(Object o) {

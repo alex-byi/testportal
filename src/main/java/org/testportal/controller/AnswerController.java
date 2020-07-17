@@ -11,13 +11,12 @@ import org.testportal.service.topic.AnswerService;
 import java.util.*;
 
 @RestController
-@RequestMapping(value = "/api")
-public class PortalController {
+@RequestMapping(value = "/answer")
+public class AnswerController {
 
     @Autowired
     private AnswerService answerService;
 
-    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(value = "/{id}")
     public AnswerDto findOne(@PathVariable Long id){
         Answer entity = answerService.findById(id)
@@ -33,7 +32,7 @@ public class PortalController {
         return answerDto;
     }
 
-    protected AnswerDto convertToDto (Answer entity){
+    private AnswerDto convertToDto (Answer entity){
         return AnswerDto.builder().id(entity.getId()).trueAnswer(entity.getTrueAnswer())
                 .firstAnswer(entity.getFirstAnswer()).secondAnswer(entity.getSecondAnswer())
                 .thirdAnswer(entity.getThirdAnswer()).fourthAnswer(entity.getFourthAnswer())

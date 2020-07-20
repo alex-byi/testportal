@@ -1,12 +1,9 @@
 package org.testportal.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "questions")
@@ -14,17 +11,17 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Question {
+public class Question implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String question;
 
+    @Column
     private int answerAmount;
 
-    @JsonIgnore
-    @OneToOne (optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "answer_id")
+    @OneToOne(targetEntity = Answer.class,cascade = CascadeType.ALL)
     private Answer answer;
 }

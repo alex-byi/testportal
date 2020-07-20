@@ -26,15 +26,16 @@ public class QuestionController {
         return convertToDto(entity);
     }
 
-//    @PostMapping
-//    public QuestionDto save(@RequestBody Question question){
+    @PostMapping
+    public Question save(@RequestBody Question question){
 //        Question entity = questionService.save(question);
-//        return convertToDto(entity);
-//    }
+        return questionService.save(question);
+    }
 
     private QuestionDto convertToDto (Question entity){
         return QuestionDto.builder().id(entity.getId()).question(entity.getQuestion())
-                .answer(entity.getAnswer()).answerAmount(entity.getAnswerAmount()).build();
+                .answer(entity.getAnswer()).answerAmount(entity.getAnswerAmount())
+                .answer(entity.getAnswer()).build();
     }
 
     @GetMapping

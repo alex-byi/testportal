@@ -5,7 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.testportal.entity.Answer;
+import org.testportal.entity.Question;
 import org.testportal.entity.dto.AnswerDto;
+import org.testportal.entity.dto.QuestionDto;
 import org.testportal.service.topic.AnswerService;
 
 import java.util.*;
@@ -22,6 +24,12 @@ public class AnswerController {
         Answer entity = answerService.findById(id)
                 .orElseThrow(() ->new ResponseStatusException(HttpStatus.NOT_FOUND));
         return convertToDto(entity);
+    }
+
+    @PostMapping
+    public Answer save(@RequestBody Answer answer){
+//        Answer entity = answerService.save(answer);
+        return answerService.save(answer);
     }
 
     @GetMapping

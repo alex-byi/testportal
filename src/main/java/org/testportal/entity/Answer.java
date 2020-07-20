@@ -1,10 +1,7 @@
 package org.testportal.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -20,27 +17,32 @@ public class Answer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String trueAnswer;
 
+    @Column
     private String firstAnswer;
 
+    @Column
     private String secondAnswer;
 
+    @Column
     private String thirdAnswer;
 
+    @Column
     private String fourthAnswer;
 
+    @Column
     private String fifthAnswer;
 
+    @Column
     private String sixthAnswer;
 
+    @Column
     private String seventhAnswer;
 
+    @Column
     private String eighthAnswer;
-
-    @JsonIgnore
-    @OneToOne(optional = false, mappedBy = "answer")
-    private Question question;
 
     @Override
     public boolean equals(Object o) {

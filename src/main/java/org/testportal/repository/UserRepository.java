@@ -8,4 +8,5 @@ import org.testportal.entity.User;
 @Service
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+    User findByUsername(String username);
 }

@@ -5,9 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import org.testportal.entity.Answer;
-import org.testportal.entity.Question;
 import org.testportal.entity.dto.AnswerDto;
-import org.testportal.entity.dto.QuestionDto;
 import org.testportal.service.topic.AnswerService;
 
 import java.util.*;

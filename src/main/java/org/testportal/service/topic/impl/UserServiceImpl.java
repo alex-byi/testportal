@@ -1,6 +1,5 @@
 package org.testportal.service.topic.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.testportal.entity.Authority;
 import org.testportal.entity.User;
-import org.testportal.repository.QuestionRepository;
 import org.testportal.repository.UserRepository;
 import org.testportal.service.topic.UserService;
 

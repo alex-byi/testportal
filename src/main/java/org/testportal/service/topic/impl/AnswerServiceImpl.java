@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class AnswerServiceImpl implements AnswerService {
 
-    private AnswerRepository answerRepository;
+    private final AnswerRepository answerRepository;
 
     public AnswerServiceImpl(AnswerRepository answerRepository) {
         this.answerRepository = answerRepository;

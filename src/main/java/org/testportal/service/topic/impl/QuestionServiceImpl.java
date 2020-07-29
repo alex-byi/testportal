@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
-    private QuestionRepository questionRepository;
+    private final QuestionRepository questionRepository;
 
     public QuestionServiceImpl(QuestionRepository questionRepository) {
         this.questionRepository = questionRepository;

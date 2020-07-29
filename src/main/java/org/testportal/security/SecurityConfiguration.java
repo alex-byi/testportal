@@ -21,8 +21,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .anyRequest().permitAll()
         .and().cors().and().csrf().disable();
-//                .authenticated()
-//                .and()
-//                .oauth2Login();
     }
 }
